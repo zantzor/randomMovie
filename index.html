@@ -1,0 +1,86 @@
+<html>
+<head>
+	<meta charset="ISO 8859">
+	<title>Random Movie</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<style>
+		/*div > div{
+			height: 200px;
+		}*/
+		.col-lg-3{
+			height: 400px;
+		}
+		.col-lg-6{
+			height: 400px;
+		}
+		.col-lg-12{
+			height: 200px;
+		}
+	</style>
+
+</head
+
+
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 bg-success">Header</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-3 bg-danger">Nav</div>
+			<div class="col-lg-6 bg-info">
+				<p id="main">Main
+
+				</p>
+				<input type="file" id="myFile">
+			</div>
+			<div class="col-lg-3 bg-warning">Section</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 bg-success">Header</div>
+		</div>
+	</div>
+	<script>
+	var input = document.getElementById("myFile");
+	var output = document.getElementById("main");
+	/*
+		var movies = [];
+		var xmlhttp;
+		if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else { // code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var text = xmlhttp.responseText;
+				// Now convert it into array using regex
+				movies = text.split(/\n|\r/g);
+				let chosen = Math.floor(Math.random() * movies.length);
+				document.getElementById("main").innerHTML = movies[chosen];
+			}
+		}
+		xmlhttp.open("GET", "file:///C:/Users/trick/Desktop/movies.txt", true);
+		xmlhttp.send();
+		*/
+		function randomList() {
+  		jQuery.get('file:///C:/Users/trick/Desktop/movies.txt', function(data){
+   		//process text file line by line
+   		var movies = data.split("\n")
+   		console.log(movies);
+   		//$('#div').html(textByLine);
+			let chosen = Math.floor(Math.random() * movies.length);
+			document.getElementById("main").innerHTML = movies[chosen];
+			});
+		}
+		input.addEventListener("change", randomList())
+	// Returns a random integer from 0 to 10:
+
+	</script>
+
+</body>
+
+</html>
