@@ -68,6 +68,7 @@
 		*/
 		function randomList() {
   		jQuery.get('movies.txt', function(data){
+		console.log(data);
    		//process text file line by line
    		var movies = data.split("\n");
    		console.log(movies);
