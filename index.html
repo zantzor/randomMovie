@@ -5,6 +5,21 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<style>
+		h1 { color: #fff; font-family: 'Righteous', cursive; font-size: 65px;
+		 		font-weight: normal; line-height: 60px; margin: 10px 0 20px;
+				text-transform: uppercase; text-shadow: 2px 2px 0 #000, margin: 10px 0 24px;
+				text-align: center; }
+
+		h2 { font-size: 30px; letter-spacing: -1px; color: #DFBF84;
+			 text-transform: uppercase; text-shadow: 1px 1px 0 #000, margin: 10px 0 24px;
+			 text-align: center; line-height: 50px; }
+
+		p { color: #f6f6f6; font-family: 'Orienta', sans-serif;
+		 	font-size: 16px; line-height: 24px; margin: 0 0 24px; text-align: center; }
+
+		a { color: #e8d4a7; text-decoration: none;
+			text-align: right; padding: 15px; font-size: 20px; }
+
 		/*div > div{
 			height: 200px;
 		}*/
@@ -17,6 +32,7 @@
 		.col-lg-12{
 			height: 200px;
 		}
+
 	</style>
 
 </head
@@ -31,11 +47,11 @@
 
 		<div class="row">
 			<div class="col-lg-3 bg-danger">Nav</div>
-			<div class="col-lg-6 bg-info">
-				<p style="color:white"; id="main">Main
-
-				</p>
-				<input type="file" id="myFile">
+			<div style="background-color: #8a1619;" class="col-lg-6">
+				<h1>Movie Random Picker</h1>
+				<h2 id="main">The Movie Titel</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<!--<input type="file" id="myFile">-->
 			</div>
 			<div class="col-lg-3 bg-warning">Section</div>
 		</div>
@@ -58,7 +74,7 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var text = xmlhttp.responseText;
 				// Now convert it into array using regex
-				movies = text.split(\n|\r/g);
+				movies = text.split(/\n|\r/g);
 				let chosen = Math.floor(Math.random() * movies.length);
 				document.getElementById("main").innerHTML = movies[chosen];
 			}
@@ -68,16 +84,16 @@
 		*/
 		function randomList() {
   		jQuery.get('movies.txt', function(data){
-		console.log(data);
    		//process text file line by line
-   		var movies = data.split("\n");
+			console.log(data);
+   		var movies = data.split("\n")
    		console.log(movies);
    		//$('#div').html(textByLine);
 			let chosen = Math.floor(Math.random() * movies.length);
 			document.getElementById("main").innerHTML = movies[chosen];
 			});
 		}
-		input.addEventListener("change", randomList())
+		//input.addEventListener("change", randomList())
 	// Returns a random integer from 0 to 10:
 
 	</script>
