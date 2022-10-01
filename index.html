@@ -58,7 +58,7 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var text = xmlhttp.responseText;
 				// Now convert it into array using regex
-				movies = text.split(/\n|\r/g);
+				movies = text.split(\n|\r/g);
 				let chosen = Math.floor(Math.random() * movies.length);
 				document.getElementById("main").innerHTML = movies[chosen];
 			}
@@ -69,7 +69,7 @@
 		function randomList() {
   		jQuery.get('movies.txt', function(data){
    		//process text file line by line
-   		var movies = data.split(/\n|\r/g)
+   		var movies = data.split(\n)
    		console.log(movies);
    		//$('#div').html(textByLine);
 			let chosen = Math.floor(Math.random() * movies.length);
