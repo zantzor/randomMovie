@@ -69,7 +69,7 @@
 		function randomList() {
   		jQuery.get('movies.txt', function(data){
    		//process text file line by line
-   		var movies = data.split(\n)
+   		var movies = data.split("\n")
    		console.log(movies);
    		//$('#div').html(textByLine);
 			let chosen = Math.floor(Math.random() * movies.length);
